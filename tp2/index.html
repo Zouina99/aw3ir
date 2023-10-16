@@ -1,34 +1,157 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>TP2</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <!-- Place favicon.ico in the root directory -->
-
+<head>
+    <meta charset="UTF-8" />
+    <script src="action.js"></script>
+    <title>Formulaire</title>
     <style>
-      body {
-        background-color: #e9ebee;
-        font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco",
-          "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-        font-size: 16px;
-        margin: 0 auto;
-        max-width: 800px;
-      }
+        tr {
+            width: 50%;
+        }
+
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 1px;
+        }
+
+
+
+
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        #ZOUINA:hover {
+
+            color: white;
+        }
+
+        td {
+            padding: 4px;
+
+        }
+
+
+        input[type="submit"],
+        input[type="reset"] {
+
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+        }
+
+        input:invalid+.icon-ok {
+            display: none;
+        }
+
+        input:valid+.icon-ok {
+            display: inline-block;
+
+        }
     </style>
 
-    <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-    <!--<link rel="stylesheet" href="style.css">-->
-    <!--<script src="js/main.js"></script>-->
-  </head>
-  <body>
-    <h1>tp2</h1>
-    <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <img src="../galilee.png" alt="Logo Galilee" />
-  </body>
+</head>
+
+<body>
+    <form action="action.html" method="get">
+        <fieldset style="width:500px">
+            <legend>
+                <h1>Contactez-nous</h1>
+            </legend>
+
+
+            <table>
+                <tr>
+                    <td><label for="nom">Nom </label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="nom" id="nom" placeholder="Saisir votre nom" minlength="4"
+                            style="width: 90%;" required />
+                        <span class="icon-ok">✔</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label for="prenom">Prénom </label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="prenom" id="prenom" placeholder="Saisir votre prénom"
+                            style="width: 90%;" required />
+                        <span class="icon-ok">✔</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="birthday">Date de naissance</label></td>
+                </tr>
+                <tr>
+                    <td> <input type="date" name="birthday" id="birthday" min="1900-01-01" max="2005-12-31"
+                            style="width: 90%;" required />
+                        <span class="icon-ok">✔</span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="address">Adresse</label></td>
+                </tr>
+                <tr>
+                    <td> <input type="text" name="address" id="address" placeholder="Saisir votre address"
+                            style="width: 90%;" required />
+                        <span class="icon-ok">✔</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="email">Email </label></td>
+                </tr>
+                <tr>
+                    <td><input name="email" type="email" id="email" placeholder="Saisir votre email" style="width: 90%;"
+                            required />
+                        <span class="icon-ok">✔</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="sujet">Quel est votre probleme?</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="probleme" style="width: 92%;" required>
+                            <option value="" disabled selected>Choisissez votre probleme</option>
+                            <option>Problème de connexion</option>
+                            <option>Mot de passe oublié</option>
+                            <option>Compte bloqué</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Vérification</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="verification" required>Je ne suis pas un robot</td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="ZOUINA" type="submit" name="envoyer" value="Envoyer" />
+                        <input id="ZOUINA" type="reset" name="annuler" value="Annuler" />
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+    </form>
+
+
+</body>
+
 </html>
