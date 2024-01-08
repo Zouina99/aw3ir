@@ -7,9 +7,18 @@
     <title>TP4</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <script src="js/form-validation.js"></script>
+    <script src="js/jps.js"></script>
+    <script src="js/store.js"></script>
+    <!-- Place favicon.ico in the root directory  <link rel="apple-touch-icon" href="apple-touch-icon.png">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script> -->
 
     <style>
         body {
@@ -18,20 +27,103 @@
             font-size: 16px;
             margin: 0 auto;
             max-width: 800px;
+
         }
     </style>
 
-    <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-    <!--<link rel="stylesheet" href="style.css">-->
-    <!--<script src="main.js"></script>-->
+
 </head>
 
 <body>
+    <h1>tp3 avec Bootstrap </h1><br>
+    <form class="row g-1">
+        <div class="col-md-4">
+            <label for="inputnom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="inputnom">
+        </div>
+        <div class="col-md-4">
+            <label for="inputprenom" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="inputprenom">
+        </div>
+        <div class="col-md-8">
+            <label for="birthday" class="form-label">Date de naissance</label>
+            <input type="date" class="form-control" id="inputbirthday" min="1988-01-01">
+        </div>
+        <div class="col-8">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input type="address" class="form-control" id="inputAddress" placeholder=" Votre ville,numéro de rue ...">
+        </div>
 
-    <h1>TP4</h1>
-    <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <img src="../galilee.png" alt="Logo Galilee" />
+        <button class="btn btn-primary" id="GPSbouton">GPS</button>
+        <div id="map">
+        </div>
+        <div class="col-md-8">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail4">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" id="submit" class="btn btn-primary">Envoyer</button>
+        </div>
+        <div>
+            <button onclick="addContact()">ajouter un contact</button>
+            <button onclick="resetContactList()">réinatialiser </button>
+            <h2>Liste des Contacts</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">date</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">mail</th>
+                    </tr>
+                </thead>
+                <tbody id="contactTableBody">
+                </tbody>
+            </table>
+        </div>
+
+    </form>
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Erreur!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h1> tous les champs sont obligatoires</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel">Vos information </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Bonjour </strong> <span id="modalFirstName"></span></p>
+                    <p><strong>vous etes neé le </strong> <span id="modalBirthday"></span></p>
+                    <p><strong>et vous habitez </strong> <span id="modalAddress"></span></p>
+                    <img src="" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
